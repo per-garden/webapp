@@ -1,0 +1,25 @@
+<!-- Providing @department to javascript on document.ready. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tjeders Hub and Alarm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="author" content="">
+  </head>
+  <body class="">
+
+  <%= 'Web Application for Hubs'  %>
+  <p>
+    <% Hub.all.each do |h| %>
+      <br>
+      <%= "#{h.name}" %>
+    <% end %>
+  </p>
+  <p>
+    <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+  </p>
+
+  </body>
+</html>
