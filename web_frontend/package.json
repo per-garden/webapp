@@ -1,0 +1,11 @@
+{
+  "name": "web_frontend",
+  "version": "1.0.0",
+  "description": "Simple testing of React frontend towards Rails backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Per Garden",
+  "license": "GPL-2.0"
+}
