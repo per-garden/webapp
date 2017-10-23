@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
-const root_path = 'http://127.0.0.1:3001/api'
+const root_path = 'http://127.0.0.1:3000/api'
 const login_path = '/login'
 const hubs_path = '/hubs'
 
