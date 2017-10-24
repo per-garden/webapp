@@ -5,16 +5,18 @@ import './App.css'
 const root_path = 'http://127.0.0.1:3000/api'
 const login_path = '/login'
 const hubs_path = '/hubs'
+const logout_path = '/logout'
 
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      login: 'a@b.c',
-      password: 'qwerty123',
+      login: '',
+      password: '',
       hubs: [],
       loading: false,
+      token: '',
     }
   }
 
@@ -38,12 +40,12 @@ class App extends Component {
       },
       function(login_res) {
         console.log('response from login:', login_res)
-
+        that.setState({ token: login_res.api_token })
         that.load(
           'GET',
           root_path + hubs_path,
           {
-            api_token: login_res.api_token,
+            api_token: that.state.token,
           },
           function(res) {
             console.log('response from hubs:', res)
@@ -85,27 +87,53 @@ class App extends Component {
     xhr.send()
   }
 
+  logout() {
+    const that = this
+    that.load(
+      'GET',
+      root_path + logout_path,
+      {
+        api_token: that.state.token,
+      },
+      function(logout_res) {
+        console.log('response from logout:', logout_res)
+        that.setState({ login: '', password: '', hubs: [], loading: false, token: '',})
+      }
+    )
+  }
+
   componentWillMount() {}
 
   render() {
     const state = this.state
     const loading = state.loading
-    const showLogin = !(loading || state.hubs.length !== 0)
+    const showLogin = state.token == null || state.token == ''
     return (
       <div className="App">
         <header className="App-header">
           {loading && <img src={logo} className="App-logo" alt="logo" />}
-          {showLogin && (
-            <div>
-              <input onChange={this.onChangeLogin.bind(this)} value={state.login} />
-              <input onChange={this.onChangePassword.bind(this)} value={state.password} />
-              <button onClick={this.login.bind(this)}>LOGIN</button>
-            </div>
-          )}
+          { showLogin && (
+              <div>
+                <input onChange={this.onChangeLogin.bind(this)} value={state.login} />
+                <input onChange={this.onChangePassword.bind(this)} value={state.password} />
+                <button onClick={this.login.bind(this)}>LOGIN</button>
+              </div>
+            )
+          }
+          { !showLogin && (
+              <div>
+                <button onClick={this.logout.bind(this)}>LOGOUT</button>
+              </div>
+            )
+          }
         </header>{' '}
-        {this.state.hubs.map((hub, i) => {
-          return <p key={i}> {hub.name + ': ' + hub.id}</p>
-        })}
+        { !showLogin && (
+          <div>
+            {this.state.hubs.map((hub, i) => {
+              return <p key={i}> {hub.name + ': ' + hub.id}</p>
+            })}
+          </div>
+        )}
       </div>
     )
   }
