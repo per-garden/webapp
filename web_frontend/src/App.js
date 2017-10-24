@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import config from './config'
 
-const root_path = 'http://127.0.0.1:3000/api'
+const root_path = config.root_path
 const login_path = '/login'
 const hubs_path = '/hubs'
 const logout_path = '/logout'
@@ -64,7 +65,6 @@ class App extends Component {
     var xhr = new XMLHttpRequest()
     xhr.onreadystatechange = function() {
       if (xhr && xhr.readyState === 4) {
-        var res = 0
 
         if (xhr.status === 503) {
           console.log('ERR:', xhr.status)
@@ -107,7 +107,7 @@ class App extends Component {
   render() {
     const state = this.state
     const loading = state.loading
-    const showLogin = state.token == null || state.token == ''
+    const showLogin = state.token === null || state.token === ''
     return (
       <div className="App">
         <header className="App-header">
