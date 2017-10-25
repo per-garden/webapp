@@ -14,8 +14,6 @@ describe HomeController, :type => :controller do
     end
 
     it 'lets user log in' do
-      skip 'Root path now react component'
-      sign_in @user
       get :index
       expect(response).to render_template('home/index')
     end
