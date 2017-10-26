@@ -11,10 +11,6 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    // console.log("Yes, I'm inside constructor :-)")
-    // var token = window.location.search.split("?api_token=")[1]
-    // console.log(token)
-
     this.state = {
       hubs: [],
       loading: false,
@@ -78,9 +74,9 @@ class App extends Component {
       function(logout_res) {
         console.log('response from logout:', logout_res)
         that.setState({ login: '', password: '', hubs: [], loading: false, token: '',})
+        window.location.replace(root_path)
       }
     )
-    window.location.replace(root_path)
   }
 
   componentDidMount() { this.hubs_index() }
