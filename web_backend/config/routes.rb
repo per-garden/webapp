@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
-  get 'index.html' => 'home#precache'
-  get 'login' => 'login#index'
+  # get 'index.html' => 'home#precache'
   namespace :api, defaults: {format: 'json'} do
     post 'login' => 'sessions#login'
     get 'hubs' => 'hubs#index'

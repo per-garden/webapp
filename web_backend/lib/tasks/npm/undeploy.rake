@@ -11,7 +11,6 @@ namespace :npm do
     system("rm public/service-worker.js")
     system("rm -R public/static")
     # Components
-    system("rm app/views/login/index.html")
-    system("rm app/views/home/index.html")
+    system("rm public/index.html")
   end
 end
