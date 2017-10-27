@@ -4,9 +4,9 @@ import './App.css'
 import config from './config'
 
 const root_path = config.root_path
-const login_path = '/api/login'
-const hubs_path = '/api/hubs'
-const logout_path = '/api/logout'
+const login_path = '/login'
+const hubs_path = '/hubs'
+const logout_path = '/logout'
 
 class App extends Component {
   constructor(props) {
@@ -101,7 +101,6 @@ class App extends Component {
       function(logout_res) {
         console.log('response from logout:', logout_res)
         that.setState({ login: '', password: '', hubs: [], loading: false, token: '',})
-        window.location.replace(root_path)
       }
     )
   }
