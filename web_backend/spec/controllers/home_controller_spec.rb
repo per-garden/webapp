@@ -1,26 +1,26 @@
 require 'spec_helper'
 
 describe HomeController, :type => :controller do 
-  describe "GET" do
 
-    before :all do
-      @user = create(:user)
-    end
-
+  describe "External" do
     it 'requires user to log in' do
-      skip 'Root path now react component'
       get :index
-      expect(response).to redirect_to('/users/sign_in')
+      expect(response).to redirect_to('/login')
+    end
+  end
+
+  describe "Internal" do
+    before :all do
+      @session = create(:logged_in_session)
     end
 
-    it 'lets user log in' do
-      skip "Ahhrgg, why do we get this ripper crap again?"
-      get :index
+    it 'renders internal home' do
+      get :index, {params: {api_token: @session.api_token}}
       expect(response).to render_template('home/index')
     end
 
     after :all do
-      @user.destroy
+      @session.destroy
     end
   end
 end
