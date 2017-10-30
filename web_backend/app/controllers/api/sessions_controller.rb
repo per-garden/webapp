@@ -26,6 +26,7 @@ module Api
 
     def logout
       session = Api::Session.find_by_api_token(@token)
+      sign_out session.user
       session.destroy
       render json: {success: true, message: "Logged out"}
     end

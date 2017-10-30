@@ -5,7 +5,7 @@ describe HomeController, :type => :controller do
   describe "External" do
     it 'requires user to log in' do
       get :index
-      expect(response).to redirect_to('/login')
+      expect(response).to redirect_to('/users/sign_in')
     end
   end
 
