@@ -3,16 +3,16 @@
 
 require 'rake'
 
-int_frontend_path = '../int_frontend'
+web_frontend_path = '../web_frontend'
 
 namespace :npm do
   desc 'Deploy react assets and components.'
   task :deploy do
     # Public assets (TODO: What if ext and int differ?)
-    system("cp #{int_frontend_path}/build/asset-manifest.json public")
-    system("cp #{int_frontend_path}/build/service-worker.js public")
-    system("cp -R #{int_frontend_path}/build/static public")
+    system("cp #{web_frontend_path}/build/asset-manifest.json public")
+    system("cp #{web_frontend_path}/build/service-worker.js public")
+    system("cp -R #{web_frontend_path}/build/static public")
     # Components
-    system("cp #{int_frontend_path}/build/index.html app/views/home")
+    system("cp #{web_frontend_path}/build/index.html app/views/home")
   end
 end
