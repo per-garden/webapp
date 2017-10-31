@@ -5,9 +5,9 @@ describe Users::SessionsController, :type => :controller do
 
     before :each do
       @user = create(:user)
-      wtf = {}
-      wtf["devise.mapping"] = Devise.mappings[:user]
-      @request.env.merge!(wtf)
+      dm = {}
+      dm["devise.mapping"] = Devise.mappings[:user]
+      @request.env.merge!(dm)
     end
 
     it 'requires credentials login and password' do
@@ -32,6 +32,8 @@ describe Users::SessionsController, :type => :controller do
     end
 
     after :each do
+      session = Api::Session.find_by_user_id(@user.id)
+      session ? session.destroy : nil
       @user.destroy
     end
 

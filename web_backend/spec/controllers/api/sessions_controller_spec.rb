@@ -16,6 +16,9 @@ describe Api::SessionsController, :type => :controller do
     end
 
     after :all do
+      # Not in real env. Logging out is not fatal...
+      user = @session.user
+      user.destroy
       @session.destroy
     end
 
