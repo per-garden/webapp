@@ -114,6 +114,10 @@ There are two tasks to respectively add and delete individual users. From direct
 
 ## Setting up data
 
+Initiate the database(s):
+
+ - bundle exec rake db:migrate
+
 There are currently no tasks to set up actual backend data. From directory web_backend use the rails console to add e.g.:
 
 ```html
