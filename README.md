@@ -75,7 +75,7 @@ Download from GitHub repository:
 
 ## Packages
 
-From directory as created by git clone, go to web_frontend (or ext_frontend, int_frontend respectivley for dual_controlled_component). Then type:
+From directory as created by git clone, go to web_frontend (or ext_frontend, int_frontend respectively for dual_controlled_component). Then type:
 
  - npm install
 
@@ -87,7 +87,7 @@ Adapt file `config.json` to your specific application instance. The URL for clie
 
 ## Application build
 
-Make sure you are positioned in directory web_frontend (or ext_frontend, int_frontend respectivley for dual_controlled_component). Then type:
+Make sure you are positioned in directory web_frontend (or ext_frontend, int_frontend respectively for dual_controlled_component). Then type:
 
  - npm run build
 
@@ -139,7 +139,7 @@ Frontend is served to client (web browser) via the backend server. There are two
 
  - `rake npm:deploy` copies components and assets to the required backend locations
 
- - `rake npm:undeploy` cleares backend locations of frontend assets and components. File names will vary between npm builds, so use this command to remove obsolete files, before deploying new frontend.
+ - `rake npm:undeploy` clears backend locations of frontend assets and components. File names will vary between npm builds, so use this command to remove obsolete files, before deploying new frontend.
 
 
 # Usage
