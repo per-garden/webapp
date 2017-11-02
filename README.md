@@ -139,7 +139,7 @@ Frontend is served to client (web browser) via the backend server. There are two
 
  - `rake npm:deploy` copies components and assets to the required backend locations
 
- - `rake npm:undeploy` cleares backend locations of frontend assets and components. File names will vary between npm builds, so use this command to remove obsolete files, before deploying new frontend.
+ - `rake npm:undeploy` clears backend locations of frontend assets and components. File names will vary between npm builds, so use this command to remove obsolete files, before deploying new frontend.
 
 
 # Usage
