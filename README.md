@@ -153,7 +153,7 @@ Now access the application at e.g. 'http://my_host.my_domain:3000' (For local te
 
 # Tests
 
-The application web_backend uses rspec for testing (presumes `rake npm_deploy` having been run):
+The application web_backend uses rspec for testing (presumes `rake npm:deploy` having been run):
 
  - bundle exec rspec spec
 
