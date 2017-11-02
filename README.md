@@ -168,7 +168,7 @@ Within the integrational scope, the most crucial open work items are:
 
  - Token rewrite and expiry. The same single token is used throughout complete session, and token never expires.
  - By letting client-side keep track of session id too, server-side could verify token without having to search all existing tokens.
- - Service worker precache (e.g. as used in Chromium) does not work properly with backend redirects. There must be a better way of handling this than server stating `501 - Not implemented`.
+ - Service worker precache does not work properly with backend redirects. There must be a better way of handling this than server stating `501 - Not implemented`.
 
 
 # Licence
