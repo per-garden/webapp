@@ -101,17 +101,6 @@ From directory as created by git clone, go web_backend. Then type:
  - bundle install
 
 
-## User Management
-
-In order for users to be able to log in, at least one account needs to be set up.
-
-There are two tasks to respectively add and delete individual users. From directory web_frontend do:
-
- - bundle exec rake add_user 'name' 'email' 'password' (e.g. bundle exec rake add_user 'Kalle Kula' 'kalle.kula@kula.org' 'qwerty123')
-
- - bundle exec rake delete_user 'name|email' (e.g. bundle exec rake delete_user 'kalle.kula@kula.org')
-
-
 ## Setting up data
 
 Initiate the database(s):
@@ -131,6 +120,17 @@ irb(main):001:0> Hub.create(name: 'Diap')
 => #<Hub id: 4, name: "Diap", created_at: "2017-10-31 14:55:03", updated_at: "2017-10-31 14:55:03">
 irb(main):002:0>
 ```
+
+
+## User Management
+
+In order for users to be able to log in, at least one account needs to be set up.
+
+There are two tasks to respectively add and delete individual users. From directory web_frontend do:
+
+ - bundle exec rake add_user 'name' 'email' 'password' (e.g. bundle exec rake add_user 'Kalle Kula' 'kalle.kula@kula.org' 'qwerty123')
+
+ - bundle exec rake delete_user 'name|email' (e.g. bundle exec rake delete_user 'kalle.kula@kula.org')
 
 
 ## Assets
